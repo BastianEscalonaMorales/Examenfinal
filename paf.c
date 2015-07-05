@@ -90,7 +90,7 @@ int main(){
     }
     minimadif = suma3;
     printf("El minimo divisor es : %d\n",minimadif); //Se muestra en pantalla el minimo divisor.
-    resultado=fopen("salida.sal","w+b"); //Crea el archivo "salida.sal".
+    resultado=fopen("salida.sal","w+b"); //Abre el archivo si no existe lo crea.
     fprintf(resultado, "%d", minimadif); //Ingresa el valor de la minima diferencia al archivo creado.
     return 0;
 }
