@@ -6,49 +6,49 @@
 #define N 200
 int main(){
 
-	FILE *lee; //Declaracion de variables.
-	FILE *resultado;
-	int i=0,j=0,k=1;
+    FILE *lee; //Declaracion de variables.
+    FILE *resultado;
+    int i=0,j=0,k=1;
     int cont=0;
     int hola=3;
-	char *p;
-	int *pu;
+    char *p;
+    int *pu;
     int *yoshi;
-	char array[N];
+    char array[N];
     for (i = 0; i < N; ++i) array[i]=0; //Se recorre el arreglo.
-	int minimadif=0;
-	int suma1=0,suma2=0,suma3=0,suma4=0;
-	int ext[N];
-	for (i = 0; i < N; ++i) ext[i]=0; //Se recorre el arreglo.
-	int array2[N];
-	for (i = 0; i < N; ++i) array2[i]=0; //Se recorre el arreglo.
-	lee=fopen("entrada.ent","r"); //Se abre el archivo donde estan nuestros numeros.
-	if (lee == NULL)
-		printf("Error al leer el archivo\n");
-	else{
-        fseek(lee,hola,0); //Lo usamos para "saltar" e ignorar la cantidad de numeros y el ENTER del archivo.
-		fgets(array,N,lee);
+    int minimadif=0;
+    int suma1=0,suma2=0,suma3=0,suma4=0;
+    int ext[N];
+    for (i = 0; i < N; ++i) ext[i]=0; //Se recorre el arreglo.
+    int array2[N];
+    for (i = 0; i < N; ++i) array2[i]=0; //Se recorre el arreglo.
+    lee=fopen("entrada.ent","r"); //Se abre el archivo donde estan nuestros numeros.
+    if (lee == NULL)
+        printf("Error al leer el archivo\n");
+    else{
+    fseek(lee,hola,0); //Lo usamos para "saltar" e ignorar la cantidad de numeros y el ENTER del archivo.
+        fgets(array,N,lee);
         if(array[0] < 48 || array[0]>58){ //Abrimos el archivo y analizamos.
             hola++;
         }
         fseek(lee,hola,0);
         fgets(array,N,lee); //Abrimos el archivo y analizamos.
         if(array[0] < 48 || array[0] >58){
-            hola++;
+        hola++;
         }
         fseek(lee,hola,0); //Abrimos el archivo en la posicion donde esten nuestros numeros.
         fgets(array,N,lee);
-	}
-	p=&array[0];
-	for(i=0; i<N;i++){
-            if(48 < *p && *p < 58){ //Pasamos los caracteres del archivo (ascii) a enteros.
-            	array2[j]= *p -48;
-            	printf("%d",array2[j]); //Guardamos los numeros enteros en un arreglo. 
-            	j++;
-            }
-            *p++;
     }
-   	printf("\n"); //Usamos un contador para evitar iteracciones vacias.
+    p=&array[0];
+    for(i=0; i<N;i++){
+        if(48 < *p && *p < 58){ //Pasamos los caracteres del archivo (ascii) a enteros.
+            array2[j]= *p -48;
+            printf("%d",array2[j]); //Guardamos los numeros enteros en un arreglo. 
+            j++;
+        }
+        *p++;
+    }
+    printf("\n"); //Usamos un contador para evitar iteracciones vacias.
     for (i = 0; i < N; ++i){
         if (array2[i]!=0) cont++;
         else break;
@@ -56,9 +56,9 @@ int main(){
     printf("La cantidad de numeros son :  %d\n",cont );
     pu=&array2[0];
     for (i = 0; i < cont; ++i){ //Hacemos una copia del arreglo entero (Para evitar problemas en las operaciones)
-    	ext[i]= *pu;
-    	*pu++;
-        if (*pu==0) break;
+        ext[i]= *pu;
+        pu++;
+        if(*pu==0) break;
     }
     yoshi=&ext[0];
     pu=&array2[0];
